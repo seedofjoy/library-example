@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    {{ super() }} 
+    <link href="{{ url_for('static', filename='js/select2/select2.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='js/select2/select2-bootstrap.css') }}" rel="stylesheet">
+    <script src="{{ url_for('static', filename='js/select2/select2.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/select2/select2_locale_ru.js') }}"></script>
+    <script>
+        $(document).ready(function() { $("select[multiple]").select2(); });
+    </script>
+{% endblock head %}
+
+{% block body %}
+    {% include "helpers/form.html" %}
+{% endblock body %}

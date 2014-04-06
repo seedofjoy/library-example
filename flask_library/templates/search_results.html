@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    {% if not query %}
+        <div class="alert alert-warning">
+            Введите запрос для поиска.
+        </div>
+    {% else %}
+        <h3>Результаты поиска для "{{query}}":</h3>
+        {% if not books and not authors %}
+            <div class="alert alert-warning">
+                По заданному запросу результатов не найдено.
+            </div>
+        {% endif %}
+        {% if books %}
+            <h4 class="text-center">Книги:</h4>
+            {% include "helpers/book_table.html" %}
+        {% endif %}
+
+        {% if authors %}
+            <h4 class="text-center">Авторы:</h4>
+            {% include "helpers/author_table.html" %}       
+        {% endif %}
+    {% endif %}
+{% endblock body %}

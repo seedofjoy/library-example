@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <div class="row">
+        <div class="container">
+            <a href="{{ url_for('author_add') }}" class="btn btn-success pull-right clearfix">Добавить автора</a>
+        </div>
+    </div>
+    {% if authors %}
+        {% include "helpers/author_table.html" %}
+    {% else %}
+    <div class="alert alert-warning">
+      <strong>Авторов не найдено!</strong> Пожалуйста, добавьте авторов.
+    </div>
+    {% endif %}
+{% endblock body %}

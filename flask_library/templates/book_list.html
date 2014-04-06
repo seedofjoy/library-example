@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <div class="row">
+        <div class="container">
+            <a href="{{ url_for('book_add') }}" class="btn btn-success pull-right clearfix">Добавить книгу</a>
+        </div>
+    </div>
+    {% if books %}
+        {% include "helpers/book_table.html" %}
+    {% else %}
+    <div class="alert alert-warning">
+      <strong>Книг не найдено!</strong> Пожалуйста, добавьте одну из ваших любимых книг в библиотеку.
+    </div>
+    {% endif %}
+{% endblock body %}

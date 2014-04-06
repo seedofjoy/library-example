@@ -1,0 +1,16 @@
+<table class="table">
+    <th>Id</th>
+    <th>Имя</th>
+    <th>Книги автора</th>
+    {% for author in authors %}
+    <tr>
+        <td>{{ author.id }}</td>
+        <td><a href="{{ url_for('author_edit', author_id=author.id) }}">{{ author.name }}</a></td>
+        <td>
+            {% for book in author.books %}
+                <a href="{{ url_for('book_edit', book_id=book.id) }}">{{ book.title }}</a>{% if not loop.last %}, {% endif %}
+            {% endfor %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
